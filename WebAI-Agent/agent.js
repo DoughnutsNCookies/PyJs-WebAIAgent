@@ -5,9 +5,9 @@ const GREEN = "\x1b[32m";
 const RED = "\x1b[31m";
 const BLUE = "\x1b[34m";
 
-const URL = "https://docs.phantom.app";
-const IMG_DIR = "images/";
-const TIMEOUT = 4000;
+const URL = "https://docs.phantom.app"; // URL to browse
+const IMG_DIR = "images/"; // Directory to save screenshots
+const TIMEOUT = 4000; // Webpage timeout in milliseconds
 const DEBUG = true; // Sets puppeteer to show browser window
 
 async function waitForEvent(page, event) {
