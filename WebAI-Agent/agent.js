@@ -44,7 +44,7 @@ const browseURL = async (page, URL) => {
   console.log(GREEN + "Browsing URL: " + BLUE + URL + RESET);
 
   await page.goto(URL, {
-    waitUntil: "networkidle0",
+    waitUntil: "domcontentloaded",
   });
 
   await Promise.race([waitForEvent(page, "load"), sleep(TIMEOUT)]);
