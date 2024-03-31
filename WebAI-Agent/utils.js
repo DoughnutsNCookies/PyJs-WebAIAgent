@@ -40,7 +40,7 @@ export async function sleep(milliseconds) {
  * @param {string} imageFile - The path to the image file.
  * @returns {Promise<string>} A promise that resolves with the base64 data URI of the image.
  */
-async function imageToBase64(imageFile) {
+export async function imageToBase64(imageFile) {
   return await new Promise((resolve, reject) => {
     fs.readFile(imageFile, (err, data) => {
       if (err) {
@@ -61,7 +61,7 @@ async function imageToBase64(imageFile) {
  * @param {string} text - The text to display as the prompt.
  * @returns {Promise<string>} A promise that resolves with the user's input.
  */
-async function promptInput(text) {
+export async function promptInput(text) {
   let returningPrompt;
 
   const rl = readline.createInterface({
