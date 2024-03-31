@@ -1,5 +1,11 @@
-import puppeteer from "puppeteer";
-import { waitForEvent, sleep } from "./utils.js";
+import puppeteer from "puppeteer-extra";
+import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import OpenAI from "openai";
+import process from "process";
+import dotenv from "dotenv";
+dotenv.config();
+
+import { waitForEvent, sleep, imageToBase64 } from "./utils.js";
 import drawBoundingBox from "./drawBoundingBox.js";
 
 const RESET = "\x1b[0m";
@@ -18,6 +24,9 @@ const DEBUG = true; // Sets puppeteer to show browser window
  * @returns {Promise<Page>} The newly created page.
  */
 const agentInit = async () => {
+  console.log(BLUE + "Initializing agent..." + RESET);
+
+  puppeteer.use(StealthPlugin());
   const browser = await puppeteer.launch({
     headless: DEBUG,
   });
@@ -52,6 +61,8 @@ const agent = async () => {
   var page = await agentInit();
 
   await browseURL(page, URL);
+
+  process.exit(0);
 };
 
 agent();

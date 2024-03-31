@@ -24,7 +24,7 @@ const drawBoundingBox = async (page) => {
        * @returns {boolean} - Returns true if the element is visible, false otherwise.
        */
       const isElementVisible = (el) => {
-        if (!el) return false; // Element does not exist
+        if (!el) return false;
 
         /**
          * Checks if the given element is visible based on its style properties.
@@ -83,8 +83,8 @@ const drawBoundingBox = async (page) => {
       const position = e.getBoundingClientRect();
 
       if (position.width > 5 && position.height > 5 && isElementVisible(e)) {
-        const link_text = e.textContent.replace(/[^a-zA-Z0-9 ]/g, "");
-        e.setAttribute("gpt-link-text", link_text);
+        const linkText = e.textContent.replace(/[^a-zA-Z0-9 ]/g, "");
+        e.setAttribute("gpt-link-text", linkText);
       }
     }, e);
   });
